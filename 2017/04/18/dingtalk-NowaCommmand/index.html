@@ -1,0 +1,756 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="dingtalk," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="nowa init page这是根据本人项目需求和个人习惯,定制的脚手架模板. nowa init 和nowa的定制模板, 是开发效率倍增的利器.   你可以定义自己的代码模板, 详细请了解nowa的官方文档 你可以定义多个代码模板,用于不同的用途. nowa init page | nowa init pageA | nowa init pageB ….1nowa init page">
+<meta name="keywords" content="dingtalk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="钉钉开发指南-Nowa模板&命令详解篇">
+<meta property="og:url" content="http://caohaijiang.github.io/2017/04/18/dingtalk-NowaCommmand/index.html">
+<meta property="og:site_name" content="钉钉,每一天都在帮助我们提升效率!">
+<meta property="og:description" content="nowa init page这是根据本人项目需求和个人习惯,定制的脚手架模板. nowa init 和nowa的定制模板, 是开发效率倍增的利器.   你可以定义自己的代码模板, 详细请了解nowa的官方文档 你可以定义多个代码模板,用于不同的用途. nowa init page | nowa init pageA | nowa init pageB ….1nowa init page">
+<meta property="og:updated_time" content="2017-04-17T18:17:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="钉钉开发指南-Nowa模板&命令详解篇">
+<meta name="twitter:description" content="nowa init page这是根据本人项目需求和个人习惯,定制的脚手架模板. nowa init 和nowa的定制模板, 是开发效率倍增的利器.   你可以定义自己的代码模板, 详细请了解nowa的官方文档 你可以定义多个代码模板,用于不同的用途. nowa init page | nowa init pageA | nowa init pageB ….1nowa init page">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://caohaijiang.github.io/2017/04/18/dingtalk-NowaCommmand/"/>
+
+
+
+
+
+  <title> 钉钉开发指南-Nowa模板&命令详解篇 | 钉钉,每一天都在帮助我们提升效率! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">钉钉,每一天都在帮助我们提升效率!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">钉钉微应用开发-小白超级全栈成长之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://caohaijiang.github.io/2017/04/18/dingtalk-NowaCommmand/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caohaijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="钉钉,每一天都在帮助我们提升效率!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                钉钉开发指南-Nowa模板&命令详解篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-18T01:06:58+08:00">
+                2017-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dingtalk/" itemprop="url" rel="index">
+                    <span itemprop="name">dingtalk</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="nowa-init-page"><a href="#nowa-init-page" class="headerlink" title="nowa init page"></a>nowa init page</h2><p>这是根据本人项目需求和个人习惯,定制的脚手架模板. nowa init 和nowa的定制模板, 是开发效率倍增的利器. </p>
+<ul>
+<li>你可以定义自己的代码模板, 详细请了解nowa的官方文档</li>
+<li>你可以定义多个代码模板,用于不同的用途. nowa init page | nowa init pageA | nowa init pageB ….<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nowa init page</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><h4 id="顶层路由"><a href="#顶层路由" class="headerlink" title="顶层路由"></a>顶层路由</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line">import &#123; HashRouter, Route &#125; from &apos;react-keeper&apos;</div><div class="line"></div><div class="line">import PageHome from &apos;pages/home/&apos;;</div><div class="line"></div><div class="line">/* </div><div class="line">  App为顶层组件,与index.html的&lt;div id=&quot;App&quot;/&gt;所对应, 由ReactDOM.render灌入.</div><div class="line">*/ </div><div class="line">class App extends React.Component &#123;</div><div class="line">    render() &#123; </div><div class="line">        return ( &lt;div&gt; &#123;</div><div class="line">            this.props.children   //指向的就是 &lt;PageHome.route /&gt;</div><div class="line">        &#125; &lt;/div&gt; );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*</div><div class="line">    * &lt;HashRouter&gt;方式,是一个单页应用, 请勿换其他模式,否则钉钉的jsapi鉴权处理麻烦了.</div><div class="line">    * 当前demo中,home页面组件包含有tabbar, 就意味所有home下面的页面都带有这个组件.</div><div class="line">    * 如果想其他组件不带有tabbar, 可以到顶层来配置.脱离home.</div><div class="line">*/</div><div class="line">const rootRoute = &lt;HashRouter&gt;&lt;div&gt;    </div><div class="line">    &lt;Route name=&quot;app&quot; path=&quot;/&quot; component=&#123; App &#125; &gt;</div><div class="line">        &lt;PageHome.route /&gt;</div><div class="line">    &lt;/Route&gt;</div><div class="line">&lt;/div&gt;&lt;/HashRouter&gt;</div><div class="line"></div><div class="line">ReactDOM.render( rootRoute, document.getElementById(&apos;App&apos;) );</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="末层路由"><a href="#末层路由" class="headerlink" title="末层路由"></a>末层路由</h4><p>模板默认生成,无需修改.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import &#123; Route &#125; from &apos;react-keeper&apos;</div><div class="line"></div><div class="line">const PageNav= &#123;</div><div class="line">    page : require( &apos;./PageNav&apos; ) ,</div><div class="line">    route : ()=&gt;&#123; return ( &lt;Route index component=&#123; PageNav.page &#125; path= &apos;/nav&apos; /&gt; )&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default PageNav</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h4><p>手动添加: 导入子页面和路由嵌套项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">import &#123; Route &#125; from &apos;react-keeper&apos;</div><div class="line"></div><div class="line">/* 导入子页面组件</div><div class="line">    * 用于tabbar的切换加载</div><div class="line">    * 子页面放在./pages目录里面,也可以不用目录直接放子页面组件的文件夹 </div><div class="line">*/</div><div class="line">import PageNav from &apos;./pages/nav&apos;;</div><div class="line">import PageEntry from &apos;./pages/entry&apos;;</div><div class="line">import PageDisplay from &apos;./pages/display&apos;;</div><div class="line">import PageFeedBack from &apos;./pages/feedback&apos;;</div><div class="line">import PageOther from &apos;./pages/other&apos;;</div><div class="line"></div><div class="line">/* 配置本层路由表</div><div class="line">    * 这是一个嵌套路由的demo</div><div class="line">    * 为什么路由规则中,多了一个&apos;index&apos;属性? 请查看react-keeper官方文档的更多用法,或者react-router.</div><div class="line">    * 嵌套形成的url路由为: /home/nav (注意./pages/nav/index.js的规则)</div><div class="line">*/</div><div class="line">const PageHome= &#123;</div><div class="line">    page : require(&apos;./PageHome&apos;) ,</div><div class="line">    route : ()=&gt;&#123; return ( </div><div class="line">        &lt;div&gt;</div><div class="line">            &lt;Route index component=&#123;PageHome.page&#125; path= &apos;/home&apos; &gt;</div><div class="line">                &lt;PageNav.route /&gt;</div><div class="line">                &lt;PageEntry.route /&gt;</div><div class="line">                &lt;PageDisplay.route /&gt;</div><div class="line">                &lt;PageFeedBack.route /&gt;</div><div class="line">                &lt;PageOther.route /&gt; </div><div class="line">            &lt;/Route&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    )&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 默认暴露PageHome,其他的对象自然就对外不可访问了.</div><div class="line">export default PageHome</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="并行路由"><a href="#并行路由" class="headerlink" title="并行路由"></a>并行路由</h4><p>手动添加: 导入子页面和路由嵌套项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">import &#123; Route &#125; from &apos;react-keeper&apos;</div><div class="line"></div><div class="line">/* 导入子页面组件</div><div class="line">    * 用于tabbar的切换加载</div><div class="line">    * 子页面放在./pages目录里面,也可以不用目录直接放子页面组件的文件夹 </div><div class="line">    * PageHome中的&#123;this.props.children &#125;,随着/home/nav | /home/entry 的访问,装载不同的子页面组件.</div><div class="line">*/</div><div class="line">import PageNav from &apos;./pages/nav&apos;;</div><div class="line">import PageEntry from &apos;./pages/entry&apos;;</div><div class="line">import PageDisplay from &apos;./pages/display&apos;;</div><div class="line">import PageFeedBack from &apos;./pages/feedback&apos;;</div><div class="line">import PageOther from &apos;./pages/other&apos;;</div><div class="line"></div><div class="line">/* 配置本层路由表</div><div class="line">    * 这是一个嵌套路由的demo</div><div class="line">    * 为什么路由规则中,多了一个&apos;index&apos;属性? 请查看react-keeper官方文档的更多用法,或者react-router.</div><div class="line">    * 并行形成的url路由为: /hoem | /nav 各自独立,</div><div class="line">*/</div><div class="line">const PageHome= &#123;</div><div class="line">    page : require(&apos;./PageHome&apos;) ,</div><div class="line">    route : ()=&gt;&#123; return ( </div><div class="line">        &lt;div&gt;</div><div class="line">            &lt;Route index component=&#123;PageHome.page&#125; path= &apos;/home&apos; /&gt;</div><div class="line">            &lt;PageNav.route /&gt;</div><div class="line">            &lt;PageEntry.route /&gt;</div><div class="line">            &lt;PageDisplay.route /&gt;</div><div class="line">            &lt;PageFeedBack.route /&gt;</div><div class="line">            &lt;PageOther.route /&gt; </div><div class="line">        &lt;/div&gt;</div><div class="line">    )&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 默认暴露PageHome,其他的对象自然就对外不可访问了.</div><div class="line">export default PageHome</div></pre></td></tr></table></figure></p>
+<h3 id="PageHome-js"><a href="#PageHome-js" class="headerlink" title="PageHome.js"></a>PageHome.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">require(&apos;./PageHome.less&apos;);</div><div class="line">import Icons from &apos;assets/icon&apos;;  // 导入svg icon, 具体可以看src/assets/icon/index.js, 按例子添加svg图标即可.</div><div class="line">import logic from &apos;./PageLogic&apos;; // no-flux的状态管理模块, 不可修改</div><div class="line">import &#123; Control &#125; from &apos;react-keeper&apos;;  </div><div class="line">import &#123; Component, LogicRender &#125; from &apos;no-flux&apos;;  // no-flux的封装组件模块, 不可修改</div><div class="line"></div><div class="line">import TabBar, &#123; activeTabbar &#125; from &apos;components/card-tabbar&apos;;  //导入自行封装的tabbar</div><div class="line"></div><div class="line">class Home extends Component &#123; // no-flux的组件类,不是react的组件类</div><div class="line">    constructor(props) &#123; super(props, logic);  // PageLogic.js ,在这里给传入了.      </div><div class="line">        this.handleChange = this.handleChange.bind(this);  </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    handleChange(key)&#123;</div><div class="line">        this.execute(&apos;setTabbarIndex&apos;,key);   // 用this.execute将状态的处理转到了PageLogic对应的函数进行处理.   </div><div class="line">        Control.go(this.state.menu[key].path, ); // react-keeper的url跳转</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    render() &#123;</div><div class="line">        const &#123; menu, tabbarIndex, badge, &#125; = this.state; //别忘记有什么状态了.</div><div class="line">        const activeIndex=activeTabbar( menu );  //针对点击钉钉导航栏返回按钮,导致tabbar激活错位的处理.</div><div class="line">        </div><div class="line">        if (tabbarIndex != activeIndex  )&#123; // 对比url索引和当前选中的值,如不对应则纠正.</div><div class="line">            this.execute(&apos;setTabbarIndex&apos;,activeIndex);            </div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;home&quot;&gt;</div><div class="line">                &#123;this.props.children &#125;  // 路由访问/home/nav, 这里就加载nav.</div><div class="line"></div><div class="line">                // 请查看 src/components/card-tabbar组件,会对React有了更深层次的理解.  </div><div class="line">                &lt;TabBar menu=&#123;menu&#125; tabbarIndex=&#123;tabbarIndex&#125; badge=&#123;badge&#125; onChange=&#123;this.handleChange&#125; /&gt; </div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    componentDidMount() &#123; </div><div class="line">        // 终于看到用钉钉jsapi了, 当真机调试情况, 会看到导航栏的标题被这里改变了. </div><div class="line">        dd.biz.navigation.setTitle(&#123; title:&apos;Home&apos; &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">export default Home ;</div></pre></td></tr></table></figure>
+<h3 id="PageLogic-js"><a href="#PageLogic-js" class="headerlink" title="PageLogic.js"></a>PageLogic.js</h3><p>src/pages/home/pages/display/PageLogic.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">import Ding from &apos;dings&apos;;</div><div class="line">import &#123; assign &#125; from &apos;lodash&apos;; // lodash 值得去学习.js的小函数库</div><div class="line">import &#123; apiSync &#125; from &apos;utils&apos; // 异步访问api资源变同步的小函数</div><div class="line">import PageConst from &apos;./PageConst&apos;; // 导入附加的状态.</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">    defaults(props) &#123;</div><div class="line">        return &#123;  empty: true, loading: false, ...PageConst,  // ...PageConst,是js的用法, 展开这个对象.</div><div class="line">            buttonText: &apos; 当前页面: display &apos;, // 初始的状态</div><div class="line">            inputText: &apos;钉钉微应用点击 (手机端)&#125;&apos;,  //初始的状态</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    /* 详细去看no-flux官方文档, 本模块所有的函数都会绑定方法和对象</div><div class="line"></div><div class="line">       setButtonText和value: 对应this.execute(&apos;setButtonText&apos;,&apos;abcd&apos;)</div><div class="line">       </div><div class="line">       &#123;setState&#125;: 这个好奇怪呀,从哪里来的? </div><div class="line">       setButtonText( obj, value) &#123; </div><div class="line">           console.log(obj)   //写成这样,你打印到浏览器控制器,会发现好东东</div><div class="line">            setState(&#123; buttonText: value &#125;)</div><div class="line">        &#125;,</div><div class="line">    */ </div><div class="line"></div><div class="line">    setButtonText(&#123;setState&#125;, value) &#123; </div><div class="line">        setState(&#123; buttonText: value &#125;)</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    printState(&#123; getState &#125;) &#123; </div><div class="line">        console.log( &apos;当前状态:&apos;, getState() )</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    // 这个例子是,将钉钉jsapi的链式回调,写成了同步用法,简洁好理解了吧. </div><div class="line">    async inputText(&#123;setState, getState&#125;) &#123;</div><div class="line">        const p = &#123; message: &quot;随便输入写什么吧!&quot;, title: &quot;提示&quot;, buttonLabels: [&apos;确定&apos;, &apos;取消&apos;], &#125;;</div><div class="line">        const res = await Ding.sync( dd.device.notification.prompt, p );</div><div class="line">        setState(&#123; inputText: res.value&#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /*</div><div class="line">    // 这个例子是用get方法访问api资源. 以后另起篇章详解. 具体参考 unity-router的用法. </div><div class="line">    async getUser(&#123; setState, Api, &#125;) &#123; // Api数据请求</div><div class="line">        setState(&#123; loading: true &#125;);</div><div class="line">        let state = await apiSync( Api.user.get, &#123;&#125;,)</div><div class="line">        setState( _.assign(state,&#123; loading: false &#125;));</div><div class="line">    &#125;,</div><div class="line">    */</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="nowa-init-mod-rmod"><a href="#nowa-init-mod-rmod" class="headerlink" title="nowa init mod | rmod"></a>nowa init mod | rmod</h2><p><a href="http://www.cnblogs.com/wonyun/p/5930333.html" target="_blank" rel="external">react创建组件的三种方式及区别</a></p>
+<h3 id="注释部分"><a href="#注释部分" class="headerlink" title="注释部分"></a>注释部分</h3><p>除了方便阅读外, 主要为了方便复制粘贴了,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/*  import Tabbar, &#123; activeTabbar &#125; from &apos;components/card-tabbar&apos;;</div><div class="line">    &lt;Tabbar menu=&#123;  &#125; tabbarIndex=&#123;  &#125; badge=&#123;  &#125; onChange=&#123;  &#125; /&gt; </div><div class="line">    </div><div class="line">    menu: [&#123;&quot;title&quot;:&quot;导航&quot;, &quot;icon&quot;:&quot;nav&quot;, &quot;path&quot;:&quot;/home/nav&quot; &#125;,]</div><div class="line">    tabbarIndex: 选中状态索引</div><div class="line">    badge: 徽标数	</div><div class="line">    onChange: 触发修改事件对应的函数 </div><div class="line"></div><div class="line">    https://mobile.ant.design/components/tab-bar/</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<h3 id="const-定义"><a href="#const-定义" class="headerlink" title="const 定义"></a>const 定义</h3><p>演示了组件外部的写法, 嵌套过于深的组件,这样外部写,更简洁清晰.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const Item = List.Item;</div><div class="line">const CustomChildren = (props) =&gt; (</div><div class="line">    &lt;div &gt; </div><div class="line">         &lt;%- Name %&gt; component </div><div class="line">    &lt;/div&gt;</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h3 id="map用法"><a href="#map用法" class="headerlink" title="map用法"></a>map用法</h3><p>演示了map循环渲染多个子组件的用法, 注意?这个三元操作符. </p>
+<ul>
+<li>为啥用map循环,不用for? 因为在混合代码里面不能用for这个同步循环命令.</li>
+<li>为啥我的json对象,不能map? map仅仅支持数组和map的格式,(本人被这个坑了,纠结了1星期)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;List&gt; &#123; </div><div class="line">    data ? data.map((item, key)=&gt; &#123;</div><div class="line">        return (</div><div class="line"></div><div class="line">        )</div><div class="line">    &#125;) : &apos;&apos; ;</div><div class="line">&#125;&lt;/List&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="nowa-init-api"><a href="#nowa-init-api" class="headerlink" title="nowa init api"></a>nowa init api</h2><h3 id="配置api资源"><a href="#配置api资源" class="headerlink" title="配置api资源"></a>配置api资源</h3><p>src/config/develop.json</p>
+<ul>
+<li>API_URL: 真实的api服务的url前缀</li>
+<li>MOCK_URL: 模拟数据的api服务的url前缀</li>
+</ul>
+<h3 id="增加api资源"><a href="#增加api资源" class="headerlink" title="增加api资源"></a>增加api资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nowa init api</div></pre></td></tr></table></figure>
+<h3 id="配置api资源-1"><a href="#配置api资源-1" class="headerlink" title="配置api资源"></a>配置api资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const user =&#123;</div><div class="line">    user: &#123;</div><div class="line">        namespace: &apos;users/&apos;,</div><div class="line">        methods: &#123;  添加各自restful api的方法</div><div class="line">            get: ( ) =&gt; (&#123; path: &apos;&apos; &#125;),  </div><div class="line"></div><div class="line">            add: (data) =&gt; (&#123;path:&apos;&apos;&#125;,&#123;options:&#123;</div><div class="line">                method:&apos;POST&apos;,                </div><div class="line">                body:JSON.stringify(data),</div><div class="line">            &#125;&#125;),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default user</div></pre></td></tr></table></figure>
+<h3 id="绑定api资源"><a href="#绑定api资源" class="headerlink" title="绑定api资源"></a>绑定api资源</h3><p>src/apis/index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import &#123; assign &#125; from &apos;lodash&apos;;</div><div class="line">import user from &apos;./user&apos;;  //导入一个api资源</div><div class="line"></div><div class="line">export const resources = assign( &#123;&#125; ,</div><div class="line">    user,  //绑定资源到api对象</div><div class="line">);</div><div class="line"></div><div class="line">export const fetchOptions = &#123;</div><div class="line">    method: &apos;GET&apos;,</div><div class="line">    mode: &apos;cors&apos;,</div><div class="line">    headers: &#123; &apos;Accept&apos;: &apos;application/json&apos;, &apos;Content-Type&apos;: &apos;application/json&apos;, &#125;,</div><div class="line">    credentials: &apos;omit&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="使用资源"><a href="#使用资源" class="headerlink" title="使用资源"></a>使用资源</h3><p>PageLogic.js: 这是一个同步化的结构, 使用了ES7的async/await的特性, 可读性更强.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const state= await apiSync( Api.area.get, [ userInfo.corpId, userInfo.emplId ], &#123; fit:true, &#125; )</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>apiSync( Api.area.get, [ userInfo.corpId, userInfo.emplId ], { fit:true, } )<br>第一个参数: api资源对象<br>第二个参数: 数组结构 post提交的值<br>第三个参数: json结构,使用中间件处理 (当前可用: fit log mock )</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dingtalk/" rel="tag"># dingtalk</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/17/dingtalk-start/" rel="prev" title="钉钉开发指南-前端全栈入门篇">
+                钉钉开发指南-前端全栈入门篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="caohaijiang" />
+          <p class="site-author-name" itemprop="name">caohaijiang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nowa-init-page"><span class="nav-number">1.</span> <span class="nav-text">nowa init page</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#index-js"><span class="nav-number">1.1.</span> <span class="nav-text">index.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#顶层路由"><span class="nav-number">1.1.1.</span> <span class="nav-text">顶层路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#末层路由"><span class="nav-number">1.1.2.</span> <span class="nav-text">末层路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套路由"><span class="nav-number">1.1.3.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并行路由"><span class="nav-number">1.1.4.</span> <span class="nav-text">并行路由</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PageHome-js"><span class="nav-number">1.2.</span> <span class="nav-text">PageHome.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PageLogic-js"><span class="nav-number">1.3.</span> <span class="nav-text">PageLogic.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nowa-init-mod-rmod"><span class="nav-number">2.</span> <span class="nav-text">nowa init mod | rmod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注释部分"><span class="nav-number">2.1.</span> <span class="nav-text">注释部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-定义"><span class="nav-number">2.2.</span> <span class="nav-text">const 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map用法"><span class="nav-number">2.3.</span> <span class="nav-text">map用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nowa-init-api"><span class="nav-number">3.</span> <span class="nav-text">nowa init api</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置api资源"><span class="nav-number">3.1.</span> <span class="nav-text">配置api资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加api资源"><span class="nav-number">3.2.</span> <span class="nav-text">增加api资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置api资源-1"><span class="nav-number">3.3.</span> <span class="nav-text">配置api资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定api资源"><span class="nav-number">3.4.</span> <span class="nav-text">绑定api资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用资源"><span class="nav-number">3.5.</span> <span class="nav-text">使用资源</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caohaijiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
