@@ -392,6 +392,291 @@
 <h3 id="微应用定位"><a href="#微应用定位" class="headerlink" title="微应用定位"></a>微应用定位</h3><p>微应用从宏观上是处在整个生态的中间层,也是最重要的层次.</p>
 <h3 id="产品使命"><a href="#产品使命" class="headerlink" title="产品使命"></a>产品使命</h3><p><strong> 为用户提供”单一高效”的业务处理逻辑和交互体验的同时, 与非竞产品合作形成”乐高积木”的解决方案. </strong> </p>
 <p><strong> 个人认为: </strong><br>对钉钉生态有了正确的认知,才能做出 <strong> 有意义 </strong> 的产品; 对客户业务有了深度的体验才能做出<strong> 有价值 </strong>的产品. 所以,请你和你的团队,真正的去了解钉钉,进行体验和学习,真正了解客户的需求,才能充分发挥钉钉+微应用独特的魅力值.</p>
+<hr>
+<h2 id="部署开发环境"><a href="#部署开发环境" class="headerlink" title="部署开发环境"></a>部署开发环境</h2><h3 id="安装应用程序"><a href="#安装应用程序" class="headerlink" title="安装应用程序"></a>安装应用程序</h3><ul>
+<li><p>Chrome: <a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=chrome" target="_blank" rel="external">安卓WebApp开发必备工具 (点击下载应用)</a></p>
+<blockquote>
+<p>坑提示: 一定选择稳定版呀,别因个人好奇心出现问题找大家帮助,连带坑了帮你的同学.</p>
+<p><a href="http://jingyan.baidu.com/article/6079ad0e84779728fe86db67.html" target="_blank" rel="external">移动端:WEB调试 (点击浏览教程)</a></p>
+<p><a href="http://blog.csdn.net/freshlover/article/details/42528643" target="_blank" rel="external">移动端:真机调试 (点击浏览教程)</a></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Node: <a href="https://nodejs.org/en/" target="_blank" rel="external">是一个基于 Chrome V8 引擎的 JavaScript 运行环境 (点击下载应用)</a>.</p>
+<blockquote>
+<p>坑提示:  Mac用户用pkg包安装,用命令行安装的话,可能会遇到权限或者环境变量的手动配置的麻烦.</p>
+<p><a href="https://jirengu.com/app/album/51" target="_blank" rel="external">node.js入门学习指南</a></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>VScode: <a href="https://code.visualstudio.com/" target="_blank" rel="external">是由微软研发的一款免费，开源的跨平台文本（代码）编辑器。(点击下载应用)</a></p>
+<blockquote>
+<p>坑提示:  win系统安装时,请注意<strong> 全部选择安装选项 </strong>, 就可以在项目文件夹右键打开,进行项目编辑了.</p>
+<p><a href="http://jingyan.baidu.com/article/2f9b480d890faa41cb6cc208.html" target="_blank" rel="external">VScode的基础使用教程</a></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Git: <a href="https://git-scm.com/" target="_blank" rel="external">是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。(点击下载应用)</a></p>
+<blockquote>
+<p>坑提示:  MacO的git包含在Xcode的工具集中,安装Xcode即可</p>
+<p><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">Git简明教程</a></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Cnpm: <a href="https://npm.taobao.org/" target="_blank" rel="external">完整<code>npmjs.org</code>镜像，你可以用此代替官方版本(只读) (点击浏览官方文档)</a>  </p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<blockquote>
+<p>坑提示: npm 是随同node.js一起安装的包管理工具, cnpm 是只读的镜像(访问国内淘宝的镜像当然快了.)</p>
+<p><a href="http://www.jianshu.com/p/e958a74a0fd7" target="_blank" rel="external">npm 简明使用教程</a> </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="安装开发工具"><a href="#安装开发工具" class="headerlink" title="安装开发工具"></a>安装开发工具</h3><p>Nowa: <a href="https://nowa-webpack.github.io/docs/an_zhuang.html" target="_blank" rel="external">是阿里内外前端组的静态资源构建工具, 基于webpack的前端开发解决方案集合。(点击浏览官方文档) </a>  </p>
+<ul>
+<li>安装命令:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm i nowa -g &amp;&amp; nowa install</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="创建项目demo"><a href="#创建项目demo" class="headerlink" title="创建项目demo"></a>创建项目demo</h2><p>请在命令行中操作: MAC 命令 (win参照即可)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 创建并进入项目开发目录</div><div class="line">mkdir /appdev/myproj/mobile/ &amp;&amp; cd mkdir /appdev/myproj/mobile</div><div class="line"></div><div class="line"># 使用nowa的&apos;dingyou-dingtalk-mobile&apos; 模板创建项目</div><div class="line">nowa init https://github.com/caohaijiang/dingyou-dingtalk-mobile/archive/master.zip -a ding-mobile</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="了解项目demo"><a href="#了解项目demo" class="headerlink" title="了解项目demo"></a>了解项目demo</h2><h3 id="打开项目"><a href="#打开项目" class="headerlink" title="打开项目"></a>打开项目</h3><blockquote>
+<p>本教程使用的是VScode, 其他编辑器也可以</p>
+</blockquote>
+<ul>
+<li><p>win打开项目: 打开’资源管理器’窗口,找到’/appdev/myproj/mobile/‘文件夹,右键使用vscode打开即可 &gt; </p>
+</li>
+<li><p>mac打开项目: 打开VScode, 在顶部菜单中,选择’文件-打开’,选择项目文件夹,即可.</p>
+</li>
+</ul>
+<h3 id="浏览和启动项目"><a href="#浏览和启动项目" class="headerlink" title="浏览和启动项目"></a>浏览和启动项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">├── html   </div><div class="line">|   └── index.html   </div><div class="line">├── src   </div><div class="line">|   ├── apis  =&gt; api资源配置</div><div class="line">|   ├── assets  =&gt; 静态资源</div><div class="line">|   |   ├── icon  =&gt; Svg图标</div><div class="line">|   |   └── img  =&gt; 图片</div><div class="line">|   ├── components  =&gt; 公共组件库</div><div class="line">|   ├── config  =&gt; 多环境配置文件</div><div class="line">|   ├── dings  =&gt; 钉钉的jsapi接口优化</div><div class="line">|   ├── pages  </div><div class="line">|   |   └── home  </div><div class="line">|   |       ├── components  =&gt; Page的私有组件</div><div class="line">|   |       ├── pages  =&gt; 子页面(路由)</div><div class="line">|   |       ├── index.js  =&gt; 路由配置</div><div class="line">|   |       ├── PageHome.js  =&gt; 连接view 和 state的进行业务处理的Page组件</div><div class="line">|   |       ├── PageHome.less  =&gt; 页面的样式文件</div><div class="line">|   |       ├── PageLogic.js  =&gt; React状态的逻辑处理</div><div class="line">|   |       └── PageConst.js  =&gt; 页面的常量状态设置.</div><div class="line">|   ├── utils </div><div class="line">|   |    ├── index.js  =&gt; 通用函数</div><div class="line">|   |    ├── middleware.js  =&gt; api处理中间件</div><div class="line">|   |    └── shortcuts.js  =&gt; 待测试....</div><div class="line">|   ├── index.js  =&gt; </div><div class="line">|   ├── api.js  =&gt; api配置,</div><div class="line">|   ├── ding.js  =&gt; 钉钉的配置和初始化,</div><div class="line">|   ├── noflux.js  =&gt; noflux配置,可给组件对象塞全局对象呀,</div><div class="line">|   ├── storage.js  =&gt; 本地存储初始化,</div><div class="line">|   └── routers.js  =&gt; 前端顶层路由</div><div class="line">├── .eslintrc  </div><div class="line">├── .gitignore  =&gt; 排出git上传的文件/目录列表</div><div class="line">├── abc.json  =&gt; nowa环境配置</div><div class="line">├── package.json  =&gt; node的项目配置</div><div class="line">└── webpack.config.js  =&gt; antd的适配</div></pre></td></tr></table></figure>
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><p><a href="http://jingyan.baidu.com/article/2f9b480d890faa41cb6cc208.html" target="_blank" rel="external">VScode的基础使用教程</a></p>
+<blockquote>
+<p>提醒: 请务必勾选设置VScode: 菜单-文件-自动保存 (自动保存后,浏览器会自动刷新)</p>
+</blockquote>
+<h4 id="打开VScode的集成控制台"><a href="#打开VScode的集成控制台" class="headerlink" title="打开VScode的集成控制台"></a>打开VScode的集成控制台</h4><p>  ctrl+`   注意: 是ESC下方的反引号</p>
+<h4 id="输入启动项目命令"><a href="#输入启动项目命令" class="headerlink" title="输入启动项目命令"></a>输入启动项目命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
+<h4 id="预览项目"><a href="#预览项目" class="headerlink" title="预览项目"></a>预览项目</h4><ul>
+<li><ol>
+<li>chrome浏览器打开: <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> . 至此, 您已经启动了一个基于 React开发的钉钉单页微应用, </li>
+</ol>
+</li>
+<li><ol>
+<li>打开调试控制台: Win系统用 <strong> ‘F12’ </strong> , Mac系统用 <strong> ‘option + command + i ‘ </strong>, 并设置为控制台为右侧栏模式 </li>
+</ol>
+</li>
+<li><ol>
+<li>调整预览方式: 点击控制台顶部菜单左侧的按钮’ toggle ‘,设置为 ‘iPhone 6’ 尺寸</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="阅读代码"><a href="#阅读代码" class="headerlink" title="阅读代码"></a>阅读代码</h2><h3 id="基础文件"><a href="#基础文件" class="headerlink" title="基础文件"></a>基础文件</h3><ul>
+<li><p>/.gitignore<br>我们是用git来推动到代码库的, 如果有不想推送到服务器的文件/目录,就在这里设置.具体可以看 <a href="http://www.cnblogs.com/haiq/archive/2012/12/26/2833746.html" target="_blank" rel="external">.gitignore配置教程</a></p>
+</li>
+<li><p>abc.json<br>刚刚入门,不需要了解和改动,想深度了解,可以看 <a href="https://nowa-webpack.github.io/docs/an_zhuang.html" target="_blank" rel="external">Nowa官方文档 </a>  </p>
+<ul>
+<li>开发环境和测试(生产)环境如何使用不同配置的秘密,就在里面的 ‘vars’ 和 ‘buildvars’ 配置上. </li>
+<li>项目开发中,不需要../../../image/a.png 这样多层引用文件,用 src/image/a.png,就可以了, 秘密在’alias’的配置上.</li>
+</ul>
+</li>
+<li><p>package.json<br>如果你已经看了<a href="https://jirengu.com/app/album/51" target="_blank" rel="external">node.js入门学习指南</a> 这个教程, 自然会明白这个文件的内容.这个demo项目所选的依赖包,都是本着易学好懂,简单好用的原则挑选出来的. </p>
+<ul>
+<li><p>antd-mobile: 如果你不想在项目的前端开发上,走坑能走到无路的话, 只能用这个ui了. 本人是实践了多个ui,踩坑数月才换到antd上的.</p>
+</li>
+<li><p>iscroll: 一个实现可以滑动组件的底层依赖包, 比如可以左右滑动的面包屑 ( Antd官方没有提供,只能自己开发组件 )</p>
+</li>
+<li><p>monment: 一个操作’日期时间’的数据非常好用的依赖包</p>
+</li>
+<li><p>natty-storage: 一个操作浏览器 localStorage 对象的依赖包</p>
+</li>
+<li><p>no-flux: 一个简单的,操作组件交互的依赖包. 初学react,如何操作交互处理呢? 如果要用大众货reflux/redux来处理,你的项目周期就延长一个月吧.  </p>
+</li>
+<li><p>react-keepr: 替代了大众教程的react-router, 原因是用这个配置和管理前端路由很方便.</p>
+</li>
+<li><p>unity-api: 支持restful Api管理的依赖包, 把后台api资源,都装到对象里面用,访问api会非常方便.</p>
+</li>
+</ul>
+</li>
+<li><p>webpack.config.js<br>请勿修改, 这是 Nowa 为使用 Antd / Antd-mobile 的UI库所增加的适配文件</p>
+</li>
+</ul>
+<hr>
+<h3 id="框架文件"><a href="#框架文件" class="headerlink" title="框架文件"></a>框架文件</h3><ul>
+<li><p>src/index.js<br>很简单,框架核心的按顺序加载,</p>
+</li>
+<li><p>src/api.js<br>没有吃透前,请勿修改.使用unity-api的依赖包, 封装了对后台api资源的访问. </p>
+<blockquote>
+<p>作用: 判断环境变量,读取配置文件,创建api对象. </p>
+<p>说明: 所引用的 ‘middlewar’是中间件模块. 对api访问进行处理,有log(打印日志), fix(json的过滤处理),mock(使用模拟api资源) </p>
+</blockquote>
+</li>
+<li><p>src/ding.js<br>钉钉官方的demo中,前端index.html获取jsapi的鉴权,真是苦涩难懂. 对此,进行了封装,</p>
+<blockquote>
+<p>通过设置config中的json配置文件, 开发环境和编译可以用两套不同配置.()</p>
+<p>jsapi.json文件,方便对了jsapi众多方法的是否使用管理</p>
+<p>钉钉api的异步链式调用,封装了同步的方法.</p>
+<p><strong> 注意 </strong> :本处使用的是post提交微应用的url是为了方便多人使用一个微应用协同开发调试,生产环境后台要增加白名单进行限制保障安全.  </p>
+</blockquote>
+</li>
+<li><p>src/noflux.js<br>不得不说,从最初的reflux来处理react的状态,到风闻redux是王道去学习,整个搞的头晕脑胀. 阿里无线的同学及时提供了no-flux这个依赖包.前后的学习对比后, no-flux真的是简单好用. 本文件,是对项目中全局状态对象的初始化. 当前的代码实际用途并不是很大.仅供参考.</p>
+<blockquote>
+<p>加载了 api 对象, 这样任意的page中,都可以方便的访问api资源了. </p>
+<p>本人,把no-flux的初始化状态对象的特性,理解成预设全局对象的用法了,(呵呵)</p>
+</blockquote>
+</li>
+<li><p>src/routers.js<br>这个是,任何react单页应用,必不可少的前端路由配置文件了. 常用的是React-router这个依赖库, 需要把所有页面的路由规则,都写到这一个文件里面.看起来好繁琐. 自从用了react-keeper后,路由表可以分家用了,感觉维护起来很方便. </p>
+<blockquote>
+<p>作用: 加载路由依赖包, 配置App组件,设置顶层路由表, 将整个单页应用开发的代码,注入到index.html里面,index.html也就是项目提供浏览器的一个壳了. </p>
+<p>如果不添加顶层页面,这个文件基本不不需要修改.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="pages-页面-文件夹"><a href="#pages-页面-文件夹" class="headerlink" title="pages(页面)文件夹"></a>pages(页面)文件夹</h3><p>就理解成mvc,都浓缩到这个5个文件吧. 页面路由,页面开发,业务逻辑都在下面这3个主文件,两个辅文件中.<br>创建页面的命令是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 创建一个页面(一组5个文件)</div><div class="line">nowa init page </div><div class="line"></div><div class="line"># 输入文件名</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>说明:如文件名’home’,则按模板生成’PageHome.js’等文件, 如果是’home-nav’,则生成”PageHomeNav.js”, 请测试一下,体会区别.  </p>
+</blockquote>
+<ul>
+<li><p>index.js<br>页面路由定义文件, 定义本页的路由和子页的路由路径; </p>
+<ul>
+<li>奇怪的写法:<br>本人将页面模块和路由规则,封装成了一个json对象, 形成了一个特殊的写法, 个人感觉维护会很方便. </li>
+<li>页面之间的路由关系:<br>相对于上级页面(路由)而言,当前页面存在了单条路由, 包含关系(有子路由),并行关系(不包含). 建议同学深入的去通过看react-router的教程,深入的理解一下路由, 如果是包含关系, /home/nav的结果就是nav这个页面在home里面是嵌如的子组件.明白这个关系后,才能理解demo中,tabbar这个组件,是如何切换嵌入页面的写法. 否则,你的tabbar组件的代码,就要写成百上千行了,维护性非常差.</li>
+<li></li>
+</ul>
+</li>
+<li><p>PageConst.js<br>仅仅一个常量对象, 在PageLogic中,用assign函数,绑定到这个页面的this.state的状态中.拆分开是方便阅读和维护. </p>
+</li>
+<li><p>PageHome.js<br>最重要的就是这个文件了, 这个文件把logic(状态处理)、less（样式表）、commponent（复用组件)等团结到了一起.实现了我们的业务交互。</p>
+<ul>
+<li><p>import部分： 导入页面所需的各种模块，不用担心各个页面导入多了，编译构建的时候不会有冗余代码。</p>
+</li>
+<li><p>constructor: 状态已经被logic剥离出去管理了, 这里的作用就是绑定事件了,照抄格式来写事件吧,慢慢就明白,如果不这样绑定事件到this对象上,会有可能调入this坑就郁闷了. <a href="http://www.jb51.net/article/76095.htm" target="_blank" rel="external">什么是this坑? 看看这个 </a></p>
+</li>
+<li><p>render: 终于看到渲染了, 页面显示什么,核心的就是这个了,其他代码都是为render服务的. </p>
+<blockquote>
+<p>const 定义 展开this.state | this.props | this.pr  ,是个人习惯怕忘记变量都有什么,也方便下面代码精简使用. (展开,我认为是个好习惯)</p>
+<p>render和return之间如果,你调试写入 console.log(111)的话,在浏览器控制你会发现突突突,输出好几遍.多次输出是否代码写错了? 这是正常的别掉坑,当初我就为这个纠结了一个星期. 真正的去理解了react的状态改变的机制,才明白.setState是唯一改变状态的方法这句话;才明白react的单向数据流.</p>
+</blockquote>
+</li>
+<li><p>return: html标签里面嵌套js的混合代码开始了. {}里面是js代码, 外面包裹的是html标签写法,很新奇吧. </p>
+<blockquote>
+<p><strong> 注意 </strong>: return里面最外层标签只能是一对, 不能写多个呀. </p>
+</blockquote>
+</li>
+<li><p>componentDidMount: 生命周期函数登场了. <a href="http://react-china.org/t/react/1740" target="_blank" rel="external">参考文档看这个</a>. 生命周期好多函数,其实最常用的是:</p>
+<blockquote>
+<p>componentWillMount: 在完成首次渲染之前调用，此时仍可以修改组件的state。加载数据可以放这里</p>
+<p>componentDidMount: 真实的DOM被渲染出来后调用, </p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Pagehome.less  被渲染组件的样式默认的不合适,需要修改? 写到这个里面吧.</p>
+<blockquote>
+<p>关于样式修改,不用less的话, 还可以这么写( 注意css中text-align, 在style中要写成 textAlign 这种格式 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style = &#123;&#123; display:&apos;inline-block&apos; &#125;&#125;  </div><div class="line">   ...</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>PageLogic.js</p>
+</li>
+</ul>
+<h3 id="components-组件-文件夹"><a href="#components-组件-文件夹" class="headerlink" title="components(组件) 文件夹"></a>components(组件) 文件夹</h3><ul>
+<li><p>创建组件命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 创建函数组件(无状态和生命周期的组件)</div><div class="line">nowa init mod </div><div class="line"></div><div class="line"># 创建react组件(有内部状态和生命周期的组件)</div><div class="line">nowa init rmod</div></pre></td></tr></table></figure>
+</li>
+<li><p>任务1: 写一个函数组件. </p>
+<blockquote>
+<p>参考demo和<a href="https://mobile.ant.design/docs/react/practical-projects-cn" target="_blank" rel="external">antd-mobile</a>文档,写一个list组的组件<br>用数组灌入多个list.item的属性, 运用js的map函数循环渲染, 实现一组list.item的组件.</p>
+</blockquote>
+</li>
+<li><p>任务2: 写一个react组件.</p>
+<blockquote>
+<p>同上,区别是用react组件实现.</p>
+</blockquote>
+</li>
+<li><p>思考: 两类组件区别是什么?<br>本人建议尽量用函数组件来实现比较好,如果组件内部必须有状态或者生命周期的话用react组件</p>
+</li>
+</ul>
+<hr>
+<h2 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h2><p>到这个时候, 想必你已经花了半小时,甚至半天时间了, 如果要看其他目录的代码的话, 估计没有学习过react的同学会很晕, 这么多代码要搞懂何年月了?<br>接下来怎么了解呢? 接下来个人认为要经历几个阶段. </p>
+<ul>
+<li><p>破坏学习: </p>
+<ul>
+<li><p>不同位置,添加大量的console.log(111),onsole.log(222),onsole.log(333),了解js的异步和react的各个模块的执行顺序. </p>
+</li>
+<li><p>修改删除demo, 造成一些破坏,观察控制台出错代码,了解各种错误和起因. </p>
+</li>
+</ul>
+</li>
+<li><p>疑问学习: 带着下面的问题学习.</p>
+<ul>
+<li>修改和添加demo中的 button 组件的状态,看看变化? =&gt; antd的组件简单用法</li>
+<li>修改demo中的 button 组件的处理函数,看看变化? =&gt; noflux的简单用法</li>
+<li>在demo中的创建一个简单的公共组件,看看怎么封装复用组件? =&gt; 函数组件的创建和React组件的创建用法?</li>
+<li>新建一个页面,怎么挂到路由能访问?  =&gt; react-keeper的简单用法</li>
+<li>怎么从api中获取json数据,在页面里面使用呢? =&gt; unity-api的简单用法</li>
+</ul>
+</li>
+<li><p>模仿学习:</p>
+<ul>
+<li>对整个demo的所有代码,懂不懂,先浏览一下,各种函数/对象等的用法,</li>
+<li>尤其是对nowa init mod / nowa init rmod / nowa init page,这三个命令创建的文件模板的代码,(都是最常用的)</li>
+</ul>
+</li>
+<li><p>基础学习: 经历过破坏学习,看到那么多不懂的代码的时候,会发现还有不少的基础知识要学习和了解. </p>
+<ul>
+<li><p>JavaScript的问题</p>
+<ol>
+<li><a href="http://www.cnblogs.com/hustskyking/p/javascript-asynchronous-programming.html" target="_blank" rel="external">js的异步编程是怎么理解的?</a></li>
+<li><a href="http://www.cnblogs.com/qieguo/p/5457040.html" target="_blank" rel="external">js的闭包是怎么理解的? </a></li>
+<li>[js的异步坑/回调坑是怎么回事?] (<a href="https://zhuanlan.zhihu.com/p/20322843?columnSlug=FrontendMagazine" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/20322843?columnSlug=FrontendMagazine</a>) </li>
+<li><a href="https://zhuanlan.zhihu.com/p/20322843?columnSlug=FrontendMagazine" target="_blank" rel="external">回调处理=&gt;链式调用(Promise) =&gt; 异步变同步 (async/await)的进化</a></li>
+<li><a href="http://www.cnblogs.com/dupd/p/5951311.html" target="_blank" rel="external">js的import/export的理解和使用</a></li>
+<li><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external">对js新版本ES6的了解(作为参考工具吧)</a></li>
+</ol>
+</li>
+<li><p>React的问题</p>
+<ol>
+<li>组件是什么? 怎么是代码混合的? 组件的父子关系? </li>
+<li>什么是组件的属性, 什么事组件的状态? </li>
+<li>单向数据流是怎么回事? 它和状态是什么关系? </li>
+<li>组件的生命周期有哪些? 常用的那几个? </li>
+<li>组件式怎么定义的? 函数组件和react组件的区别是什么? </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="附录-参考文档"><a href="#附录-参考文档" class="headerlink" title="附录 (参考文档)"></a>附录 (参考文档)</h2><p>我历经半年,收藏夹的精华呀!</p>
+<h3 id="ES6-7"><a href="#ES6-7" class="headerlink" title=" ES6/7 "></a><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external"> ES6/7 </a></h3><h3 id="js-node-react"><a href="#js-node-react" class="headerlink" title=" js+node+react "></a><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external"> js+node+react </a></h3><h3 id="js全栈工程师培训教程"><a href="#js全栈工程师培训教程" class="headerlink" title=" js全栈工程师培训教程"></a><a href="http://www.ruanyifeng.com/blog/2016/11/javascript.html" target="_blank" rel="external"> js全栈工程师培训教程</a></h3><h3 id="React技术栈教程"><a href="#React技术栈教程" class="headerlink" title=" React技术栈教程"></a><a href="http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html" target="_blank" rel="external"> React技术栈教程</a></h3><h3 id="依赖包"><a href="#依赖包" class="headerlink" title="[ 依赖包 ]"></a>[ 依赖包 ]</h3><p>做人要厚道,好用请送作者一个星.</p>
+<ul>
+<li><a href="https://mobile.ant.design/docs/react/practical-projects-cn" target="_blank" rel="external"> antd-mobile </a> </li>
+<li><a href="https://github.com/jias/natty-storage" target="_blank" rel="external"> natty-storage </a></li>
+<li><a href="https://github.com/fengsx/no-flux" target="_blank" rel="external"> no-flux </a></li>
+<li><a href="https://github.com/vifird/react-keeper" target="_blank" rel="external"> react-keeper </a></li>
+<li><a href="https://github.com/auru/unity-api" target="_blank" rel="external"> unity-api </a></li>
+<li><a href="http://lodashjs.com/docs/#_forinobject-iteratee_identity-thisarg" target="_blank" rel="external"> lodash </a></li>
+<li><a href="http://momentjs.cn/" target="_blank" rel="external"> momentjs </a></li>
+<li><a href="https://github.com/typicode/json-server" target="_blank" rel="external"> json-server </a></li>
+<li><a href="http://mockjs.com/" target="_blank" rel="external"> mockjs </a></li>
+</ul>
+<h3 id="Node"><a href="#Node" class="headerlink" title="[ Node ]"></a>[ Node ]</h3><ul>
+<li><a href="http://www.jianshu.com/p/6b816c609669" target="_blank" rel="external"> 1. koa2 </a></li>
+<li><a href="https://itbilu.com/nodejs/npm/VkYIaRPz-.html" target="_blank" rel="external"> 2. sequlize </a></li>
+<li><a href="http://javascript.ruanyifeng.com/#introduction" target="_blank" rel="external"> 3. js-node </a></li>
+</ul>
+<h3 id="React"><a href="#React" class="headerlink" title=" React "></a><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external"> React </a></h3><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/01/flux.html" target="_blank" rel="external"> flux </a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="external"> redux 1 </a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="external"> redux 2 </a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.html" target="_blank" rel="external"> redux 3 </a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html" target="_blank" rel="external"> 更多… </a></li>
+</ul>
 
           
         
