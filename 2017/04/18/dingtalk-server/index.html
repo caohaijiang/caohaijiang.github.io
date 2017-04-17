@@ -1,0 +1,802 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="dingtalk," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="centos7 安装部署 使用工具: win =&amp;gt; xshell/sftp; mac =&amp;gt; 终端.   操作系统: centos7 常用命令: wget | tar | ln  主要命令: forever | systemctl如对上述工具及命令比较熟悉最好不过, 不熟悉的同学那就依葫芦画瓢,部署演练一番, 如有问题请及时群内沟通大家协助解决.">
+<meta name="keywords" content="dingtalk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dingtalk-server">
+<meta property="og:url" content="http://caohaijiang.github.io/2017/04/18/dingtalk-server/index.html">
+<meta property="og:site_name" content="钉钉,每一天都在帮助我们提升效率!">
+<meta property="og:description" content="centos7 安装部署 使用工具: win =&amp;gt; xshell/sftp; mac =&amp;gt; 终端.   操作系统: centos7 常用命令: wget | tar | ln  主要命令: forever | systemctl如对上述工具及命令比较熟悉最好不过, 不熟悉的同学那就依葫芦画瓢,部署演练一番, 如有问题请及时群内沟通大家协助解决.">
+<meta property="og:updated_time" content="2017-04-17T18:38:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="dingtalk-server">
+<meta name="twitter:description" content="centos7 安装部署 使用工具: win =&amp;gt; xshell/sftp; mac =&amp;gt; 终端.   操作系统: centos7 常用命令: wget | tar | ln  主要命令: forever | systemctl如对上述工具及命令比较熟悉最好不过, 不熟悉的同学那就依葫芦画瓢,部署演练一番, 如有问题请及时群内沟通大家协助解决.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://caohaijiang.github.io/2017/04/18/dingtalk-server/"/>
+
+
+
+
+
+  <title> dingtalk-server | 钉钉,每一天都在帮助我们提升效率! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">钉钉,每一天都在帮助我们提升效率!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">钉钉微应用开发-小白超级全栈成长之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://caohaijiang.github.io/2017/04/18/dingtalk-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caohaijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="钉钉,每一天都在帮助我们提升效率!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                dingtalk-server
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-18T02:23:14+08:00">
+                2017-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dingtalk/" itemprop="url" rel="index">
+                    <span itemprop="name">dingtalk</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="centos7-安装部署"><a href="#centos7-安装部署" class="headerlink" title="centos7 安装部署"></a>centos7 安装部署</h2><ul>
+<li>使用工具: win =&gt; xshell/sftp; mac =&gt; 终端.  </li>
+<li>操作系统: centos7</li>
+<li>常用命令: wget | tar | ln </li>
+<li>主要命令: forever | systemctl<br>如对上述工具及命令比较熟悉最好不过, 不熟悉的同学那就依葫芦画瓢,部署演练一番, 如有问题请及时群内沟通大家协助解决.</li>
+</ul>
+<a id="more"></a>
+<h3 id="准备服务器"><a href="#准备服务器" class="headerlink" title="准备服务器"></a>准备服务器</h3><p>本文讲解的是一个测试服务器的部署</p>
+<p><a href="https://ecs-buy-cn-zhangjiakou.aliyun.com/#/prepay" target="_blank" rel="external">阿里云选购最低配置服务器一台: 点击跳转链接</a></p>
+<blockquote>
+<p>已有lunux服务器同学请跳过,并联系管理员获得账密</p>
+<p>选择系列III,紧凑型xn4,1核/1G/1MB, CentOS 7.3 64位即可,这是最便宜的了. </p>
+<p>设置root账号密码, 并记录备用. </p>
+<p>按提示操作, 登录阿里云,找到实例, 记录公网IP地址备用.</p>
+</blockquote>
+<h3 id="登录服务器"><a href="#登录服务器" class="headerlink" title="登录服务器"></a>登录服务器</h3><ul>
+<li><p>win: <a href="http://jingyan.baidu.com/article/295430f13fb4db0c7f005065.html" target="_blank" rel="external"> xshell: 点击查看教程 </a> </p>
+</li>
+<li><p>mac: <a href="http://jingyan.baidu.com/article/546ae1853132bf1148f28c42.html" target="_blank" rel="external"> mac-终端: 点击查看教程 </a></p>
+</li>
+</ul>
+<h3 id="防火墙启用和配置"><a href="#防火墙启用和配置" class="headerlink" title="防火墙启用和配置"></a>防火墙启用和配置</h3><p>可复制多行命令,贴到终端执行,末行回车即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">sudo systemctl enable firewalld</div><div class="line">sudo systemctl start firewalld</div><div class="line">sudo firewall-cmd --zone=public --add-port=80/tcp --permanent</div><div class="line">sudo firewall-cmd --zone=public --add-port=30001/tcp --permanent</div><div class="line">sudo firewall-cmd --zone=public --add-port=30002/tcp --permanent</div><div class="line">sudo firewall-cmd --zone=public --add-port=30003/tcp --permanent</div><div class="line">sudo firewall-cmd --zone=public --add-port=30004/tcp --permanent</div><div class="line">sudo firewall-cmd --zone=public --add-port=30005/tcp --permanent</div><div class="line">sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent</div><div class="line">sudo firewall-cmd --reload</div><div class="line">sudo firewall-cmd --list-all</div></pre></td></tr></table></figure>
+<ul>
+<li>80: Web服务端口 =&gt; Nginx 测试应用站点</li>
+<li>30001: authServer( 钉钉jsapi鉴权服务 ) =&gt; Node + koa2</li>
+<li>30002: apiServer ( 真实Api服务 ) =&gt; Node + koa2 + sequelize</li>
+<li>30003: jsonServer( 模拟Api服务 ) =&gt; Node + jsonServer + mockjs</li>
+<li>30004: 备用</li>
+<li>30005: mysql ( 数据库 ) </li>
+</ul>
+<h3 id="新增用户和权限设置"><a href="#新增用户和权限设置" class="headerlink" title="新增用户和权限设置"></a>新增用户和权限设置</h3><ol>
+<li><p>新增用户 ( 替换digyou为你账号名称 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd dingyou  &amp;&amp; passwd dingyou =&gt; Ding2017</div></pre></td></tr></table></figure>
+</li>
+<li><p>授权sudo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">visudo</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>i   : 切换到插入编辑模式</li>
+<li>查找 “root ALL=(ALL) ALL”的位置, 其下新增一行 “ dingyou ALL=(ALL)       NOPASSWD:ALL “, NOPASSWD:ALL 免密码使用sudo比较方便</li>
+<li>查找 “Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin” 末尾增加 “:/usr/local/bin” , 否则sudo找不到node命令</li>
+<li>wq  : 保存退出, 其他命令参看常用命令集</li>
+</ul>
+<h3 id="换用-dingyou-账号登录"><a href="#换用-dingyou-账号登录" class="headerlink" title="换用 dingyou 账号登录"></a>换用 dingyou 账号登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su dingyou</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我之前总是习惯用root账号操作, 但是玩玩可以, 正式和大家协作,为了安全性,还是不要用root账号操作为好.</p>
+</blockquote>
+<p>###: 设置系统环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/environment =&gt; NODE_ENV=&quot;develop&quot; // 末行增加</div><div class="line">source /etc/environment</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="mysql-5-7安装部署"><a href="#mysql-5-7安装部署" class="headerlink" title="mysql 5.7安装部署"></a>mysql 5.7安装部署</h2><p>此文档仅针对开发环境的搭建做出讲解，没有安全/性能/可用性等方面的考虑，不适用于配置生产系统</p>
+<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">sudo wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</div><div class="line">sudo yum -y localinstall mysql57-community-release-el7-9.noarch.rpm</div><div class="line">sudo yum -y repolist enabled | grep &quot;mysql.*-community.*&quot;</div><div class="line">sudo yum -y install mysql-community-server</div><div class="line"></div><div class="line">sudo systemctl enable mysqld </div><div class="line">sudo systemctl start mysqld</div><div class="line">sudo systemctl status mysqld</div></pre></td></tr></table></figure>
+<h3 id="修改默认端口号"><a href="#修改默认端口号" class="headerlink" title="修改默认端口号"></a>修改默认端口号</h3><p>sudo vi /etc/my.cnf  =&gt; + port=30005<br>sudo systemctl restart mysqld</p>
+<h3 id="首次使用随机密码登录-并修改root密码"><a href="#首次使用随机密码登录-并修改root密码" class="headerlink" title="首次使用随机密码登录,并修改root密码"></a>首次使用随机密码登录,并修改root密码</h3><p>grep ‘temporary password’ /var/log/mysqld.log =&gt; 复制随机密码<br>mysql -uroot -p<br>set password = password(‘Ding@2017’); </p>
+<h3 id="创建数据库-添加用户-并授权远程访问"><a href="#创建数据库-添加用户-并授权远程访问" class="headerlink" title="创建数据库 + 添加用户,并授权远程访问"></a>创建数据库 + 添加用户,并授权远程访问</h3><p>grant all privileges on dingDB.* to dingyou@’%’ identified by ‘dyAdmin@2017’;</p>
+<h3 id="更新生效"><a href="#更新生效" class="headerlink" title="更新生效"></a>更新生效</h3><p>FLUSH   PRIVILEGES;<br>quit</p>
+<hr>
+<h2 id="Nginx-安装配置"><a href="#Nginx-安装配置" class="headerlink" title="Nginx 安装配置"></a>Nginx 安装配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</div><div class="line">sudo yum -y install -y nginx</div><div class="line">sudo systemctl enable nginx &amp;&amp; sudo systemctl start nginx &amp;&amp; sudo systemctl status nginx</div><div class="line"></div><div class="line">sudo mkdir -p /wwwroot/myapp/test</div></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/nginx/conf.d/default.conf =&gt; </div><div class="line"></div><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  test.gbtong.com;</div><div class="line">    location / &#123;</div><div class="line">        root   /wwwroot/myapp/test;</div><div class="line">        index  index.html index.htm;</div><div class="line">    &#125;</div><div class="line">    error_page   500 502 503 504  /50x.html;</div><div class="line">    location = /50x.html &#123;</div><div class="line">        root   /usr/share/nginx/html;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试本地是否成功,</div><div class="line">cd ~ &amp;&amp; wget http://test.gbtong.com &amp;&amp; cat index.html</div></pre></td></tr></table></figure>
+<h3 id="反向代理参考"><a href="#反向代理参考" class="headerlink" title="反向代理参考"></a>反向代理参考</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># /etc/nginx/conf.d/default.conf/xxx.conf</div><div class="line"></div><div class="line">vi /etc/nginx/conf.d/default.conf &#123;</div><div class="line">    server &#123;  </div><div class="line">        listen  80;  </div><div class="line">        server_name taqing.me www.taqing.me;  </div><div class="line">        location / &#123;  </div><div class="line">            proxy_pass http://127.0.0.1:3000;  </div><div class="line">        &#125;  </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令:"></a>常用命令:</h3><ul>
+<li>nginx -a reload  : 检查配置语法</li>
+<li>nginx -s reload  ：修改配置后重新加载生效</li>
+</ul>
+<hr>
+<h2 id="node-安装部署"><a href="#node-安装部署" class="headerlink" title="node 安装部署"></a>node 安装部署</h2><h3 id="选择版本"><a href="#选择版本" class="headerlink" title="选择版本"></a>选择版本</h3><p>[查看最新文档版本: 选择LTS稳定版] (<a href="https://nodejs.org/" target="_blank" rel="external">https://nodejs.org/</a>)</p>
+<h3 id="获取链接"><a href="#获取链接" class="headerlink" title="获取链接"></a>获取链接</h3><p>[查看最新稳定版的下载位置] (<a href="https://nodejs.org/dist/" target="_blank" rel="external">https://nodejs.org/dist/</a>)</p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>逐行复制命令,贴到终端执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/src</div><div class="line">sudo wget https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x64.tar.xz</div><div class="line">sudo tar -xJf node* &amp;&amp; sudo mv node* /opt/</div><div class="line"></div><div class="line"># 安装node, 注意修改版本号</div><div class="line">sudo ln -s /opt/node-v6.10.1-linux-x64/bin/node /usr/local/bin/node</div><div class="line">sudo ln -s /opt/node-v6.10.1-linux-x64/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm</div><div class="line"></div><div class="line"># 安装cnpm, 注意修改版本号</div><div class="line">sudo npm install cnpm -g --registry=https://registry.npm.taobao.org</div><div class="line">sudo ln -s /opt/node-v6.10.1-linux-x64/bin/cnpm /usr/local/bin/cnpm</div><div class="line"></div><div class="line"># 安装forever, 注意修改版本号</div><div class="line">sudo cnpm install forever -g</div><div class="line">sudo ln -s /opt/node-v6.10.1-linux-x64/bin/forever /usr/local/bin/forever</div><div class="line"></div><div class="line"># 检测是否安装正确</div><div class="line">clear &amp;&amp; node -v &amp;&amp; npm -v &amp;&amp; cnpm -v</div></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>说明: </p>
+<ul>
+<li>为什么用ln命令建立软连接? 如果你想部署新版本了,修改一下软连接指向新版本,是不是很方便? </li>
+<li>为什么 node -v / npm -v 命令找不到? 软连接建立错误了呗, 检查一下那个字符打错了吧. </li>
+<li>为什么安装cnpm? 这个是npm库的淘宝镜像,如果你愿意接受国外站点慢速下载的话,可以不安装. </li>
+</ul>
+<p>出错:</p>
+<ul>
+<li>npm等命令找不到, 请查看centos7安装部署文档, sudo的path环境变量没有设置</li>
+<li>ln 建立错误怎么办? 进入/usr/local/bin目录, 使用ls命令查看,文件名红色的,那就是错了, 用rm 命令删除即可.</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dingtalk/" rel="tag"># dingtalk</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/18/dingtalk-NowaCommmand/" rel="prev" title="钉钉开发指南-Nowa模板&命令详解篇">
+                钉钉开发指南-Nowa模板&命令详解篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="caohaijiang" />
+          <p class="site-author-name" itemprop="name">caohaijiang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos7-安装部署"><span class="nav-number">1.</span> <span class="nav-text">centos7 安装部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备服务器"><span class="nav-number">1.1.</span> <span class="nav-text">准备服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录服务器"><span class="nav-number">1.2.</span> <span class="nav-text">登录服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防火墙启用和配置"><span class="nav-number">1.3.</span> <span class="nav-text">防火墙启用和配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增用户和权限设置"><span class="nav-number">1.4.</span> <span class="nav-text">新增用户和权限设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换用-dingyou-账号登录"><span class="nav-number">1.5.</span> <span class="nav-text">换用 dingyou 账号登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-5-7安装部署"><span class="nav-number">2.</span> <span class="nav-text">mysql 5.7安装部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装mysql"><span class="nav-number">2.1.</span> <span class="nav-text">安装mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改默认端口号"><span class="nav-number">2.2.</span> <span class="nav-text">修改默认端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首次使用随机密码登录-并修改root密码"><span class="nav-number">2.3.</span> <span class="nav-text">首次使用随机密码登录,并修改root密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库-添加用户-并授权远程访问"><span class="nav-number">2.4.</span> <span class="nav-text">创建数据库 + 添加用户,并授权远程访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新生效"><span class="nav-number">2.5.</span> <span class="nav-text">更新生效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-安装配置"><span class="nav-number">3.</span> <span class="nav-text">Nginx 安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向代理参考"><span class="nav-number">3.3.</span> <span class="nav-text">反向代理参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">3.4.</span> <span class="nav-text">常用命令:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-安装部署"><span class="nav-number">4.</span> <span class="nav-text">node 安装部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择版本"><span class="nav-number">4.1.</span> <span class="nav-text">选择版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取链接"><span class="nav-number">4.2.</span> <span class="nav-text">获取链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装"><span class="nav-number">4.3.</span> <span class="nav-text">下载安装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caohaijiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
