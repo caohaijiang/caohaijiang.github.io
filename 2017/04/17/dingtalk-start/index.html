@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="dingtalk,nowa,no-flux,antd,node,react,unity-api,react-kepper,natty-storage," />
+  <meta name="keywords" content="dingtalk,nowa,no-flux,antd,react,node,unity-api,react-kepper,natty-storage," />
 
 
 
@@ -88,7 +88,7 @@
 
 
 <meta name="description" content="前言 初衷既然你能看到这段内容, 那就是抱着好奇、或观望、或已发现钉钉的商机无限, 有目的深入了解钉钉微应用开发的.如果已经发现钉钉的商机无限, 那么我们一起学习成长吧! 适合的读者 前端培训毕业生: 如果你对html/css有过学习,初步了解.   初级前端工程师: 如果你对html/css有过1年左右的开发经验, 不了解Node/React.   中级前端工程师: 如果你对Node+React">
-<meta name="keywords" content="dingtalk,nowa,no-flux,antd,node,react,unity-api,react-kepper,natty-storage">
+<meta name="keywords" content="dingtalk,nowa,no-flux,antd,react,node,unity-api,react-kepper,natty-storage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="钉钉开发指南-前端全栈入门篇">
 <meta property="og:url" content="http://caohaijiang.github.io/2017/04/17/dingtalk-start/index.html">
@@ -96,7 +96,7 @@
 <meta property="og:description" content="前言 初衷既然你能看到这段内容, 那就是抱着好奇、或观望、或已发现钉钉的商机无限, 有目的深入了解钉钉微应用开发的.如果已经发现钉钉的商机无限, 那么我们一起学习成长吧! 适合的读者 前端培训毕业生: 如果你对html/css有过学习,初步了解.   初级前端工程师: 如果你对html/css有过1年左右的开发经验, 不了解Node/React.   中级前端工程师: 如果你对Node+React">
 <meta property="og:image" content="http://caohaijiang.github.io/images/qun.jpg">
 <meta property="og:image" content="http://caohaijiang.github.io/2017/04/17/dingtalk-start/images/ding.jpg">
-<meta property="og:updated_time" content="2017-05-10T23:43:09.000Z">
+<meta property="og:updated_time" content="2017-05-10T23:56:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="钉钉开发指南-前端全栈入门篇">
 <meta name="twitter:description" content="前言 初衷既然你能看到这段内容, 那就是抱着好奇、或观望、或已发现钉钉的商机无限, 有目的深入了解钉钉微应用开发的.如果已经发现钉钉的商机无限, 那么我们一起学习成长吧! 适合的读者 前端培训毕业生: 如果你对html/css有过学习,初步了解.   初级前端工程师: 如果你对html/css有过1年左右的开发经验, 不了解Node/React.   中级前端工程师: 如果你对Node+React">
@@ -398,17 +398,20 @@
 <h2 id="教程发布的小结"><a href="#教程发布的小结" class="headerlink" title="教程发布的小结"></a>教程发布的小结</h2><ul>
 <li><p>2017.04-05:<br> 教程发布近1个月了,群内的同学已经增加到40名(12名为阿里钉钉及阿里其他部门的支持工程师), 小结一下大家的类型</p>
 <ol>
-<li>一部分为<h2 id="部署开发环境"><a href="#部署开发环境" class="headerlink" title="部署开发环境"></a>部署开发环境</h2><h3 id="安装应用程序"><a href="#安装应用程序" class="headerlink" title="安装应用程序"></a>安装应用程序</h3></li>
+<li><p>一部分为已有客户的产品,需要移植到钉钉微应用<br>建议重点,和后台同学放到钉钉的鉴权和免登的学习和了解, 先不接触其他学习,避免干扰掉入问题不断涌现的坑</p>
+</li>
+<li><p>一部分为已确定产品的架构和依赖库,需要定制开发产品的钉钉微应用<br>已经掌握react的团队,请反馈建议项目经理在估一下react的依赖库, noaw的开发效率倍增, noflux比redux更好理解好用, react-kepper的更便捷…, 我个人理解学习的成本还是可以有经济效益的, 毕竟这几个库都是阿里同学维护的,开发者都在群内.<br>还不了解react的团队,先上手吧,先按教程的react依赖库用, 能跑通理解了.然后再说router-router / redux 等通用的大型的库,<br>(偷偷说一下: 找他们请教,还可以得到更多方面的帮助,他们很热心的)</p>
+</li>
 </ol>
-<ul>
+</li>
+</ul>
+<h2 id="部署开发环境"><a href="#部署开发环境" class="headerlink" title="部署开发环境"></a>部署开发环境</h2><h3 id="安装应用程序"><a href="#安装应用程序" class="headerlink" title="安装应用程序"></a>安装应用程序</h3><ul>
 <li><p>Chrome: <a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=chrome" target="_blank" rel="external">安卓WebApp开发必备工具 (点击下载应用)</a></p>
 <blockquote>
 <p>坑提示: 一定选择稳定版呀,别因个人好奇心出现问题找大家帮助,连带坑了帮你的同学.</p>
 <p><a href="http://jingyan.baidu.com/article/6079ad0e84779728fe86db67.html" target="_blank" rel="external">移动端:WEB调试 (点击浏览教程)</a></p>
 <p><a href="http://blog.csdn.net/freshlover/article/details/42528643" target="_blank" rel="external">移动端:真机调试 (点击浏览教程)</a></p>
 </blockquote>
-</li>
-</ul>
 </li>
 </ul>
 <ul>
@@ -812,9 +815,9 @@
           
             <a href="/tags/antd/" rel="tag"># antd</a>
           
-            <a href="/tags/node/" rel="tag"># node</a>
-          
             <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/node/" rel="tag"># node</a>
           
             <a href="/tags/unity-api/" rel="tag"># unity-api</a>
           
